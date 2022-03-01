@@ -82,7 +82,7 @@ const createList = async () => {
         });
 
         let newElement = tableElement;
-        newElement = newElement.replace("{{pos}}", pos);
+        newElement = newElement.replace("{{pos}}", pos + 1);
         newElement = newElement.replace("{{event}}", element.events);
         newElement = newElement.replace("{{squirrel}}", element.squirrel);
         if (element.squirrel) {
@@ -123,11 +123,12 @@ const createList = async () => {
         })
       );
 
-      let i = 0;
+      let i = 1;
 
       for (const [key, val] of mapDesc.entries()) {
         let newElement = tableElement;
         newElement = newElement.replace("{{pos}}", i);
+        newElement = newElement.replace("{{className}}", "");
         newElement = newElement.replace("{{event}}", key);
         newElement = newElement.replace("{{squirrel}}", val);
         i += 1;
